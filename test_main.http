@@ -1,11 +1,130 @@
-# Test your FastAPI endpoints
+### ══════════════════════════════
+### MEDAROTS
+### ══════════════════════════════
 
-GET http://127.0.0.1:8000/
+### Health check
+GET http://localhost:8000/
 Accept: application/json
 
 ###
 
-GET http://127.0.0.1:8000/hello/User
+### 1. Crear Medarot
+POST http://localhost:8000/medarots/
+Content-Type: application/json
+
+{
+  "name": "Metabee",
+  "type": "Shooter",
+  "medal_type": "Beetle",
+  "attack_power": 85.5
+}
+
+###
+
+### 2. Crear otro Medarot
+POST http://localhost:8000/medarots/
+Content-Type: application/json
+
+{
+  "name": "Rokusho",
+  "type": "Fighter",
+  "medal_type": "Stag",
+  "attack_power": 90.0
+}
+
+###
+
+### 3. Obtener todos los Medarots
+GET http://localhost:8000/medarots/
 Accept: application/json
 
 ###
+
+### 4. Obtener Medarot por ID
+GET http://localhost:8000/medarots/1
+Accept: application/json
+
+###
+
+### 5. Obtener Medarot inexistente (debe retornar 404)
+GET http://localhost:8000/medarots/9999
+Accept: application/json
+
+###
+
+### 6. Actualizar parcialmente un Medarot
+PATCH http://localhost:8000/medarots/1
+Content-Type: application/json
+
+{
+  "attack_power": 95.0
+}
+
+###
+
+### 7. Eliminar Medarot (soft delete)
+DELETE http://localhost:8000/medarots/1
+
+###
+
+### ══════════════════════════════
+### MEDAFIGHTERS
+### ══════════════════════════════
+
+### 8. Crear Medafighter
+POST http://localhost:8000/medafighters/
+Content-Type: application/json
+
+{
+  "name": "Ikki Tenryou",
+  "rank": "Intermediate",
+  "specialty": "Close Combat",
+  "wins": 10
+}
+
+###
+
+### 9. Crear otro Medafighter
+POST http://localhost:8000/medafighters/
+Content-Type: application/json
+
+{
+  "name": "Arika Amazake",
+  "rank": "Beginner",
+  "specialty": "Support",
+  "wins": 3
+}
+
+###
+
+### 10. Obtener todos los Medafighters
+GET http://localhost:8000/medafighters/
+Accept: application/json
+
+###
+
+### 11. Obtener Medafighter por ID
+GET http://localhost:8000/medafighters/1
+Accept: application/json
+
+###
+
+### 12. Obtener Medafighter inexistente (debe retornar 404)
+GET http://localhost:8000/medafighters/9999
+Accept: application/json
+
+###
+
+### 13. Actualizar parcialmente un Medafighter
+PATCH http://localhost:8000/medafighters/1
+Content-Type: application/json
+
+{
+  "rank": "Advanced",
+  "wins": 15
+}
+
+###
+
+### 14. Eliminar Medafighter (soft delete)
+DELETE http://localhost:8000/medafighters/1
